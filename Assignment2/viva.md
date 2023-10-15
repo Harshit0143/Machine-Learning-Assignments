@@ -10,9 +10,7 @@ Training Data:
 16 ->  78.046 , 73.361
 32 ->  88.172 , 77.521 
 64 ->  99.895 , 86.786  
-128 -> 99.979 , 
-
-
+128 -> 99.979 , 97.206 
 ```
 
 * Gaussiaa Naive Bayes:
@@ -57,3 +55,8 @@ Training Data:
   - Consistency: The output scores are directly comparable. Each classifier determines the "winner" for one pair of classes, and the class with the most "votes" wins.
   - Scalability: N(N-1)/2 classifiers needed for N classes
   - Inconsistent Probabilities: OvO classifiers do not give probability estimates directly, so you need to combine the votes or outputs in some way to estimate class probabilities.
+ 
+* Domain Adaptation:
+  - In out Naive Bayes model most if the data is general say "Positive" while in covid data, data is not Neutral "Negative", hence class priors are badly affected. This might be one reason for low accuracies in this case
+  - Domain adaptation is necessary when the data distribution in the source domain does not fully align with the data distribution in the target domain. This misalignment can lead to poor model performance on the target domain.
+  - 
