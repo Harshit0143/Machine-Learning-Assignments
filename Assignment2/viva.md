@@ -59,4 +59,4 @@ Training Data:
 * Domain Adaptation:
   - In out Naive Bayes model most if the data is general say "Positive" while in covid data, data is not Neutral "Negative", hence class priors are badly affected. This might be one reason for low accuracies in this case
   - Domain adaptation is necessary when the data distribution in the source domain does not fully align with the data distribution in the target domain. This misalignment can lead to poor model performance on the target domain.
-  - 
+* Why bigram? Words like Red Wine, North America, United States appear together. Thye loose meaning iof they are spit. Simlarly, if the phrase "not good" are split, they give the "oppositie" sentiment 
