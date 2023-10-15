@@ -1,16 +1,16 @@
 * Binary Classifier on different pixel sizes:
 ```
 Validation Set:
-16 -> 71.750 , 77.750
-32 -> 71.000 , 77.750
-64 -> 64.000 , 77.500
-128 -> 62.000, 78.250
+16 ->  71.750 , 77.750
+32 ->  71.000 , 77.750
+64 ->  64.000 , 77.500
+128 -> 62.000 , 78.250
 
 Training Data:
-16 -> 88.172 , 77.521
-32 ->  
-64 -> 99.895, 86.786  
-128 -> 
+16 ->  78.046 , 73.361
+32 ->  88.172 , 77.521 
+64 ->  99.895 , 86.786  
+128 -> 99.979 , 
 
 
 ```
@@ -35,4 +35,25 @@ Training Data:
   - Objective is Quadratic w.r.t $alpa_2$, given $\alpha_2$ we get $\alpha_1$ 
   - "clipping" for box constraint
   - Heuristics to choose which 2 $\alpha$'s to pick 
-* 
+* Multiclass Classfier from Binary
+  - One vs One: done in assignment
+  - One vs Many:
+
+* Multiclass Imbalance: In multiclass classification, class imbalance can occur when some classes have very few instances while others have a larger number. The degree of imbalance can vary among classes
+  - Notice `Naive Bayes` and `GDA` are badlhy hit by Imbalance. Class priors `p(y)` will get mor epoor as imabalnce imcreases
+  - Srandard Logistic Regression: The Majority class will mostly guide the classifier. notice if there are 100 examples of (+) class and     just 5 of (-) class, the (+) class will `pull` the boundary towards itself to increase Average log likelihood
+  - SVM: slightly better: it just looks at "nearest points". Recall: there is atleast 1 SV from each class. Can also weigh geometric margin for (+) and (-) differnetly and tune the model
+  
+* Compare OvO and OvM
+  - One-vs-Rest (OvR) or One-vs-All (OvA):
+  - For N classes, and this can be computationally efficient.
+  - Inherent Probabilities: OvR classifiers can give you probability estimates directly, which is useful in applications like ranking or     risk assessment.
+  - less efficient use of data: for example, if class1 and class2 are "sharply" differentiable, we aren't taking that
+    benefit and "diluting" that. If the classes are already not well separated, it's even a bigger issue
+  - We get direct probability values. But are they usefu?
+
+  - One-vs-One (OvO):
+  - Data Efficiency: OvO can be more data-efficient than OvR because each classifier is trained on a smaller subset of the data. This can be beneficial when data is limited.
+  - Consistency: The output scores are directly comparable. Each classifier determines the "winner" for one pair of classes, and the class with the most "votes" wins.
+  - Scalability: N(N-1)/2 classifiers needed for N classes
+  - Inconsistent Probabilities: OvO classifiers do not give probability estimates directly, so you need to combine the votes or outputs in some way to estimate class probabilities.
