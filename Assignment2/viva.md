@@ -79,8 +79,26 @@ Training Data:
     that the minimum dunctional margin to 1, hence the minimum geometic margin becomes $1/||w||$, minimising which is equivalent to
     maximising ||w||
 * Stemming vs Lematisation
-* Can you use Gradient Descent to solve the SVM?
+* Confision Matrix needs to have the colour density 
+* Can you use Gradient Descent to solve the Soft Margin SVM?
   - In the standard form: No. There are constraints and Gradient Descent won't respect that
-  - 
+    $$min_{ξ,w,b} \frac{1}{2}  \lVert w \rVert^2 + C \sum_{i=1}^m ξ_i$$
+    under:
+    $$y^{(i)}(w^Tx^{(i)} + b) \geq 1 - ξ_i , i = 1 , 2 ...m$$
+    $$ξ_i \geq 0, i = 0 , 1...m$$
+  - From this we get  $ξ_i \geq  1 - y^{(i)}(w^Tx^{(i)} + b)$
+  - Which gives $ξ^{\*}_i =  max(0 , 1 - y^{(i)}(w^{\*T}x^{(i)} + b^{\*}))$
+  - Above holds, as if $ξ^{\*}_i$ is any lesser, it violates the contraints, if it's
+    any higher, we can prove by contradiction that is is suboptimal.
+  
+  - This leads us to the objective:
+    $$min_{w,b} \frac{1}{2}  \lVert w \rVert^2 + C \sum_{i=1}^m max(0 , 1 - y^{(i)}(w^{\*T}x^{(i)} + b^{\*}))$$
+    and $w$ and $b$ are now unconstrained.
+  - $max$ is continuous, so this fuction is continuous everywhere
+  - The second derivative may not exits at some points, but still note that this function is pievewise convex
+  - So we use "sub gradient" toi solve it
+* 
+    
+
 
   
