@@ -99,15 +99,13 @@ Training Data:
 
 * Prove that the $max$ of any number of conve functions with the same domain is also convex
   - for points $a$ and $b$ in domain, and any real number $x$ in $[0,1]$ we have
-    $$f(x a + (1 - x)b) \geq xf(a) + (1 - x) f(b)$$
-    $$g(x a + (1 - x)b) \geq xg(a) + (1 - x) g(b)$$
+    $$f(x a + (1 - x)b) \leq xf(a) + (1 - x) f(b)$$
+    $$g(x a + (1 - x)b) \leq xg(a) + (1 - x) g(b)$$
     max(f,g)((x a + (1 - x)b))
-    * If either $f$ or $g$ are $max$ at both $a$ and $b$ then the proof is easy
-    * WLOG let $max(f(a) , g(a)) = f(a)$ and $max(f(b) , g(b)) = f(b)$
-    * We wish to show
-      $$max(f(x a + (1 - x)b) , g(x a + (1 - x)b))  \geq xf(a) + (1 - x) g(b)$$
-    
-    
+    - $xf(a) + (1 - x) f(b) \leq x * max(f(a) , g(a)) + (1 - x) * max(f(b) , g(b))$ as $x, (1-x) \geq 0$
+    - $xg(a) + (1 - x) g(b) \leq x * max(f(a) , g(a)) + (1 - x) * max(f(b) , g(b))$ as $x, (1-x) \geq 0$
+    - hence showing    
+      $$max(f(x a + (1 - x)b) , g(x a + (1 - x)b))  \leq max(f(a) , g(a)) + (1 - x) * max(f(b) , g(b))$$
 
 
   
