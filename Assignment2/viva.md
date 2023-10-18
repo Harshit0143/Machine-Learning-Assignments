@@ -98,10 +98,14 @@ Training Data:
   - So we use "sub gradient" toi solve it
 
 * Prove that the $max$ of any number of conve functions with the same domain is also convex
-  - for points $a$ and $b$ in domain, and any real number $x$ in $[0,1]$we have
-    $$f(x a + (1 - x)b) >= xf(a) + (1 - x) f(b)$$
-    $$g(x a + (1 - x)b) >= xg(a) + (1 - x) g(b)$$
+  - for points $a$ and $b$ in domain, and any real number $x$ in $[0,1]$ we have
+    $$f(x a + (1 - x)b) \geq xf(a) + (1 - x) f(b)$$
+    $$g(x a + (1 - x)b) \geq xg(a) + (1 - x) g(b)$$
     max(f,g)((x a + (1 - x)b))
+    * If either $f$ or $g$ are $max$ at both $a$ and $b$ then the proof is easy
+    * WLOG let $max(f(a) , g(a)) = f(a)$ and $max(f(b) , g(b)) = f(b)$
+    * We wish to show
+      $$max(f(x a + (1 - x)b) , g(x a + (1 - x)b))  \geq xf(a) + (1 - x) g(b)$$
     
     
 
