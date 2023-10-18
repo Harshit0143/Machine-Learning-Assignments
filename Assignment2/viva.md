@@ -90,14 +90,19 @@ Training Data:
   - Which gives $ξ^{\*}_i =  max(0 , 1 - y^{(i)}(w^{\*T}x^{(i)} + b^{\*}))$
   - Above holds, as if $ξ^{\*}_i$ is any lesser, it violates the contraints, if it's
     any higher, we can prove by contradiction that is is suboptimal.
-  
   - This leads us to the objective:
     $$min_{w,b} \frac{1}{2}  \lVert w \rVert^2 + C \sum_{i=1}^m max(0 , 1 - y^{(i)}(w^{\*T}x^{(i)} + b^{\*}))$$
     and $w$ and $b$ are now unconstrained.
   - $max$ is continuous, so this fuction is continuous everywhere
   - The second derivative may not exits at some points, but still note that this function is pievewise convex
   - So we use "sub gradient" toi solve it
-* 
+
+* Prove that the $max$ of any number of conve functions with the same domain is also convex
+  - for points $a$ and $b$ in domain, and any real number $x$ in $[0,1]$we have
+    $$f(x a + (1 - x)b) >= xf(a) + (1 - x) f(b)$$
+    $$g(x a + (1 - x)b) >= xg(a) + (1 - x) g(b)$$
+    max(f,g)((x a + (1 - x)b))
+    
     
 
 
