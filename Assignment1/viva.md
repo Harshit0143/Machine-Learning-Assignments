@@ -42,4 +42,12 @@
 * MLE is a subset of MAP or MAP is a subset of MLE?
   - MAP assumes a priori distribution on $\theta$
   - SSetting $\theta$ = Uniform, it results in the MLE expression
+ 
+  
+    <img width="571" alt="Screenshot 2023-10-18 at 6 16 36 PM" src="https://github.com/Harshit0143/Machine-Learning-Assignments/assets/97736991/d9ae0c3e-10a6-456f-b28c-6155b79b0600">
     
+* Explain why there's less "wobbling" in the start (far from optimum) and increases on going closer to the optimum?
+  - Firstly note that there are $r$ different optima is if split the batch into $r$ pieces and iterate over them in a robin hood fashion (no shuffling done except from when the start)
+  - Intuitively, the these optima are close to each other in position $(\theta_0, \theta_1,\theta_2)$. When we start far from the optima, notice by drawing arrows, from currect position in direction of each oprima, these arrows are closely aligned. Hence, in successive steps either batch "guides" $\theta$ in more or less the same direction
+  - As you get closer, notice, the angle between these arrows increases, each sussessive batch guides in a diffeennt direction so wobbling increases
+
