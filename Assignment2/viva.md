@@ -1,5 +1,6 @@
 * Binary Classifier on different pixel sizes:
 ```
+Image Size: --> Accuracy by Lineat Kernel and Gaussian Kernel Respectively (SK Learn)
 Validation Set:
 16 ->  71.750 , 77.750
 32 ->  71.000 , 77.750
@@ -12,6 +13,9 @@ Training Data:
 64 ->  99.895 , 86.786  
 128 -> 99.979 , 97.206 
 ```
+
+* Above clearly indicates, the model just iverfits as you make the image "fed into the SVM classfier" more clearer
+* Which makes sence, two very close pixels, don't give out much info (for an SVM classfier), differnece in their value is just noise
 
 * Gaussiaa Naive Bayes:
 - Naive bayes but now with continuous parametrs: you should p(x_i | y) is now obtaines from a normal distribution.
@@ -59,4 +63,24 @@ Training Data:
 * Domain Adaptation:
   - In out Naive Bayes model most if the data is general say "Positive" while in covid data, data is not Neutral "Negative", hence class priors are badly affected. This might be one reason for low accuracies in this case
   - Domain adaptation is necessary when the data distribution in the source domain does not fully align with the data distribution in the target domain. This misalignment can lead to poor model performance on the target domain.
-* Why bigram? Words like Red Wine, North America, United States appear together. Thye loose meaning iof they are spit. Simlarly, if the phrase "not good" are split, they give the "oppositie" sentiment 
+* Why bigram? Words like Red Wine, North America, United States appear together. Thye loose meaning iof they are spit. Simlarly, if the phrase "not good" are split, they give the "oppositie" sentiment
+
+* Why K-fold Cross validation is used in general?
+  - When data is samll, so that we don't "waste" data for the validation set
+* Soft Margin Classifier in linit of $C \to 0$ and $C \to \infty$
+  - $C \to \infty$: there is infinite penalty for being on the wrong side of the Margin. Since we're trying to minimise the overall          cost, i.e. $||w||^2$ + penalty, this means, a feasible solution
+    must have all points exactly on the correct side of the classifier, that is the data must be linearly separable
+    for a solution to exits. This is the Hard SVM classifier.
+  - $C \to 0$: there is no penaty for breaking the margin. We just need to minimise $||w||^2$. In this case the solution
+    will just be $w = 0$ and $b$ can take any values and $\epsilon_i$'s can be set to values to make the constraints satisfy, without any penalty. 
+
+* How does $||w||^2$ appear in the hard SVM classifier objective?
+  - We try to maximuse the minimum gemometric margin. Singe geometric margin is invariant to rescaling, we set another contraint,
+    that the minimum dunctional margin to 1, hence the minimum geometic margin becomes $1/||w||$, minimising which is equivalent to
+    maximising ||w||
+* Stemming vs Lematisation
+* Can you use Gradient Descent to solve the SVM?
+  - In the standard form: No. There are constraints and Gradient Descent won't respect that
+  - 
+
+  
