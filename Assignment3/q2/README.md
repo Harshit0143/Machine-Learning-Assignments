@@ -414,7 +414,7 @@ clf = MLPClassifier(hidden_layer_sizes= hidden_layer_arch , activation= 'relu',
 |$[512]$ |$67.054$|$59.947$|
 |$[512, 256]$|$66.104$|$61.709$|
 |$[512, 256, 128]$ |$80.428$|$63.186$|
-|$[512, 256, 128, 64]$$ |$80.617$|$64.603$|
+|$[512, 256, 128, 64]$ |$80.617$|$64.603$|
 
 * Clearly, `scratch` outperforms `sk learn` in all $4$ cases. But this could be due to differing convergence criterial too. I also trained `sk learn` with `tol = 1e-4` in which case it convergs before hitting `max_iter`. The Scores in those cases were atmost $1$% - $2$% different from these. 
 
