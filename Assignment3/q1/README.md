@@ -23,7 +23,7 @@ $$H(Y | X_j) = \sum_{x_j} P(X_j = x_j) * H(Y | X_j = x_j)$$
 
 $$I(Y | X_j) = H(Y) - H(Y | X_j)$$
 
-* In `Scratch`, while deciding split at a node, `all features` are considered (here the number of features is already too small) and feature corresponding to the minimum $I(Y | X_j)$, or equivalently maximum $H(Y | X_j)$ is used to split. {As $H(Y)$ is same for every $X_j$}
+* In `Scratch`, while deciding split at a node, `all features` are considered (here the number of features is already too small) and feature corresponding to the maximum $I(Y | X_j)$, or equivalently minimum $H(Y | X_j)$ is used to split. {As $H(Y)$ is same for every $X_j$}
   
 * For Continuous Features, above is done by splitting across the median
 
